@@ -1,0 +1,30 @@
+FilesExist
+-----------------
+A custom Ant task
+-----------------
+
+Description:
+While learning Ant, I couldn't find a way to check if all of the files in my "output" 
+folder actually existed without using "available" over and over. So, I decided that
+this would be a good little project to learn how custom Ant tasks work.
+
+Usage:
+1. Compile
+      javac -classpath ant.jar com/bytemares/ant/FilesExist.java
+      jar cvf filesexist.jar com/bytemares/ant/FilesExist.class
+2. Move "filesexist.jar" to a location on your class path. The "lib" folder in your Ant
+   deployment works.
+3. Example build.xml
+
+      <?xml version="1.0"?>
+        <project default="main">
+        <taskdef name="availablefiles" classname="com.bytemares.ant.FilesExist"/>
+        <target name="main">
+          <availablefiles fileList="file1.txt,file2.txt,file3.txt"/>
+        </target>
+      </project>
+ 
+Todo:
+- allow list of files to be passed in as a file
+- clean up code
+- document code
